@@ -1,0 +1,2 @@
+rootProject.name = "BeInMedia Test"
+include ':app'
