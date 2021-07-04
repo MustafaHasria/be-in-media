@@ -1,12 +1,14 @@
 package com.example.beinmediatest.ui.main.feed.model;
 
+import android.graphics.Bitmap;
+
 import com.example.beinmediatest.ui.main.feed.response.ExternalsResponse;
 import com.example.beinmediatest.ui.main.feed.response.ImageResponse;
 import com.example.beinmediatest.ui.main.feed.response.LinksResponse;
 import com.example.beinmediatest.ui.main.feed.response.NetworkResponse;
 import com.example.beinmediatest.ui.main.feed.response.RatingResponse;
 
-public class MoviesModel {
+public class MovieModel {
 
     private int id;
     private String name;
@@ -17,6 +19,24 @@ public class MoviesModel {
     private String officialSite;
     private ImageModel image;
     private String summary;
+    private boolean isFromLocal = false;
+    private Bitmap localImage;
+
+    public Bitmap getLocalImage() {
+        return localImage;
+    }
+
+    public void setLocalImage(Bitmap localImage) {
+        this.localImage = localImage;
+    }
+
+    public boolean isFromLocal() {
+        return isFromLocal;
+    }
+
+    public void setFromLocal(boolean fromLocal) {
+        isFromLocal = fromLocal;
+    }
 
     public int getId() {
         return id;

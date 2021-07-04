@@ -6,20 +6,40 @@
     android:layout_height="match_parent"
     android:background="@color/background">
 
-    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-        android:id="@+id/home_swipe_refresh"
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/feed_view_recycler"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-            app:spanCount="2"
-            tools:listitem="@layout/feed_list_item" />
 
-    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+        <com.mancj.materialsearchbar.MaterialSearchBar
+            android:layout_margin="20dp"
+            style="@style/MyCustomTheme"
+            app:mt_speechMode="true"
+            app:mt_hint="Search here"
+            app:mt_placeholder="Search here"
+            app:mt_speechIconDrawable="@drawable/ic_camera"
+            app:mt_maxSuggestionsCount="10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/feed_search_bar" />
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/feed_swipe_refresh"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/feed_view_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:spanCount="2"
+                tools:listitem="@layout/feed_list_item" />
+
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    </LinearLayout>
 
     <include
         android:id="@+id/feed_view_no_internet"
@@ -51,6 +71,15 @@
         android:visibility="gone"
         android:layout_gravity="center"
         app:SpinKit_Color="@color/accent"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/feed_floating_action_button_switch"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        app:backgroundTint="@color/accent"
+        android:src="@drawable/ic_baseline_grid_on"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
 
 
 

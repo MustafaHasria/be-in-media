@@ -1,14 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.main.trash.TrashFragment">
+    android:background="@color/background">
 
-    <TextView
-        android:gravity="center"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/trash_recycler"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="trash screen" />
+        tools:listitem="@layout/deleted_feed_list_item" />
 
-</FrameLayout>
+    <include
+        android:id="@+id/feed_view_no_data"
+        layout="@layout/no_deleted_files_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:visibility="gone" />
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

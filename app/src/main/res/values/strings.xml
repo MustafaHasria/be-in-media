@@ -6,4 +6,6 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="feed">Feed</string>
     <string name="my_trash">My trash</string>
+    <string name="name_data">look at description</string>
+    <string name="description_data">sorry there are no description cause you are coming from local</string>
 </resources>

@@ -10,7 +10,7 @@ import androidx.lifecycle.MutableLiveData;
 import com.example.beinmediatest.api.ApiStateListener;
 import com.example.beinmediatest.repository.feedrepository.FeedRepository;
 import com.example.beinmediatest.ui.main.feed.model.ImageModel;
-import com.example.beinmediatest.ui.main.feed.model.MoviesModel;
+import com.example.beinmediatest.ui.main.feed.model.MovieModel;
 import com.example.beinmediatest.ui.main.feed.response.MoviesResponse;
 import com.example.beinmediatest.util.AppConst;
 
@@ -22,11 +22,11 @@ import java.util.List;
 public class FeedViewModel extends AndroidViewModel {
 
     //region Variables
-    private MutableLiveData<List<MoviesModel>> movies ;
+    private MutableLiveData<List<MovieModel>> movies ;
     private MutableLiveData<String> states;
     private FeedRepository feedRepository;
     private List<MoviesResponse> moviesResponses;
-    private List<MoviesModel> moviesModelList;
+    private List<MovieModel> movieModelList;
     //endregion
 
     public FeedViewModel(@NonNull @NotNull Application application) {
@@ -42,19 +42,19 @@ public class FeedViewModel extends AndroidViewModel {
             @Override
             public void onSuccess(Object... params) {
                 moviesResponses = (List<MoviesResponse>) params[0];
-                moviesModelList = new ArrayList<>();
+                movieModelList = new ArrayList<>();
                 for (int i = 0; i < moviesResponses.size(); i++) {
-                    MoviesModel  moviesModel = new MoviesModel();
-                    moviesModel.setId(moviesResponses.get(i).getId());
-                    moviesModel.setName(moviesResponses.get(i).getName());
-                    moviesModel.setSummary(moviesResponses.get(i).getSummary());
+                    MovieModel movieModel = new MovieModel();
+                    movieModel.setId(moviesResponses.get(i).getId());
+                    movieModel.setName(moviesResponses.get(i).getName());
+                    movieModel.setSummary(moviesResponses.get(i).getSummary());
                     ImageModel imageModel = new ImageModel();
                     imageModel.setMedium(moviesResponses.get(i).getImage().getMedium());
                     imageModel.setOriginal(moviesResponses.get(i).getImage().getOriginal());
-                    moviesModel.setImage(imageModel);
-                    moviesModelList.add(moviesModel);
+                    movieModel.setImage(imageModel);
+                    movieModelList.add(movieModel);
                 }
-                movies.postValue(moviesModelList);
+                movies.postValue(movieModelList);
                 states.postValue(AppConst.SUCCESS);
             }
 
@@ -65,7 +65,7 @@ public class FeedViewModel extends AndroidViewModel {
         });
     }
 
-    public LiveData<List<MoviesModel>> getListLiveData() {
+    public LiveData<List<MovieModel>> getListLiveData() {
         return movies;
     }
 

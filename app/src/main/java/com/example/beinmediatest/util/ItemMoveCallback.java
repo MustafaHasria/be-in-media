@@ -1,10 +1,11 @@
-package net.healthintouch.hit.utility;
+package com.example.beinmediatest.util;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
-import net.healthintouch.hit.models.main.chat.conversation.conversationattachment.conversationattachmentpoll.ConversationAttachmentPollAdapter;
+import com.example.beinmediatest.ui.main.feed.adapter.FeedItemAdapter;
+
 
 public class ItemMoveCallback extends ItemTouchHelper.Callback {
 
@@ -32,7 +33,7 @@ public class ItemMoveCallback extends ItemTouchHelper.Callback {
 
     @Override
     public int getMovementFlags(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder) {
-        int dragFlags = ItemTouchHelper.UP | ItemTouchHelper.DOWN;
+        int dragFlags = ItemTouchHelper.UP | ItemTouchHelper.DOWN | ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT;
         return makeMovementFlags(dragFlags, 0);
     }
 
@@ -47,9 +48,9 @@ public class ItemMoveCallback extends ItemTouchHelper.Callback {
     public void onSelectedChanged(RecyclerView.ViewHolder viewHolder,
                                   int actionState) {
         if (actionState != ItemTouchHelper.ACTION_STATE_IDLE) {
-            if (viewHolder instanceof ConversationAttachmentPollAdapter.ConversationAttachmentPollViewHolder) {
-                ConversationAttachmentPollAdapter.ConversationAttachmentPollViewHolder myViewHolder =
-                        (ConversationAttachmentPollAdapter.ConversationAttachmentPollViewHolder) viewHolder;
+            if (viewHolder instanceof FeedItemAdapter.FeedItemViewHolder) {
+                FeedItemAdapter.FeedItemViewHolder myViewHolder =
+                        (FeedItemAdapter.FeedItemViewHolder) viewHolder;
                 mAdapter.onRowSelected(myViewHolder);
             }
 
@@ -63,9 +64,9 @@ public class ItemMoveCallback extends ItemTouchHelper.Callback {
                           RecyclerView.ViewHolder viewHolder) {
         super.clearView(recyclerView, viewHolder);
 
-        if (viewHolder instanceof ConversationAttachmentPollAdapter.ConversationAttachmentPollViewHolder) {
-            ConversationAttachmentPollAdapter.ConversationAttachmentPollViewHolder myViewHolder =
-                    (ConversationAttachmentPollAdapter.ConversationAttachmentPollViewHolder) viewHolder;
+        if (viewHolder instanceof FeedItemAdapter.FeedItemViewHolder) {
+            FeedItemAdapter.FeedItemViewHolder myViewHolder =
+                    (FeedItemAdapter.FeedItemViewHolder) viewHolder;
             mAdapter.onRowClear(myViewHolder);
         }
     }
@@ -74,9 +75,9 @@ public class ItemMoveCallback extends ItemTouchHelper.Callback {
 
         void onRowMoved(int fromPosition, int toPosition);
 
-        void onRowSelected(ConversationAttachmentPollAdapter.ConversationAttachmentPollViewHolder myViewHolder);
+        void onRowSelected(FeedItemAdapter.FeedItemViewHolder myViewHolder);
 
-        void onRowClear(ConversationAttachmentPollAdapter.ConversationAttachmentPollViewHolder myViewHolder);
+        void onRowClear(FeedItemAdapter.FeedItemViewHolder myViewHolder);
 
     }
 

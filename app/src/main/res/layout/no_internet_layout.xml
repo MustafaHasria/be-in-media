@@ -4,6 +4,8 @@
     android:layout_height="match_parent"
     android:layout_gravity="center"
     android:gravity="center"
+    android:id="@+id/no_internet_main_container"
+
     android:orientation="vertical">
 
     <ImageView

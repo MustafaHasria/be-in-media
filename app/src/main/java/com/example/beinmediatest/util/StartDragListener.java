@@ -1,4 +1,4 @@
-package net.healthintouch.hit.utility;
+package com.example.beinmediatest.util;
 
 import androidx.recyclerview.widget.RecyclerView;
 
