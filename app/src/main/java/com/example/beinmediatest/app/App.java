@@ -27,6 +27,7 @@ public class App extends Application {
 
     //endregion
 
+    //region Methods
     public static boolean hasNetwork(){
         return instance.isNetworkConnected();
     }
@@ -39,4 +40,5 @@ public class App extends Application {
         return activeNetwork != null &&
                 activeNetwork.isConnectedOrConnecting();
     }
+    //endregion
 }

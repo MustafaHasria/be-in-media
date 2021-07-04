@@ -29,13 +29,16 @@ public class FeedViewModel extends AndroidViewModel {
     private List<MovieModel> movieModelList;
     //endregion
 
+    //region Constructor
     public FeedViewModel(@NonNull @NotNull Application application) {
         super(application);
         feedRepository = new FeedRepository();
         movies = new MutableLiveData<>(new ArrayList<>());
         states = new MutableLiveData<>(AppConst.NOTHING);
     }
+    //endregion
 
+    //region Methods
     public void getFeeds(){
         states.postValue(AppConst.LOADING);
         feedRepository.connectToGetMovieApi(new ApiStateListener() {
@@ -64,7 +67,9 @@ public class FeedViewModel extends AndroidViewModel {
             }
         });
     }
+    //endregion
 
+    //region Getters
     public LiveData<List<MovieModel>> getListLiveData() {
         return movies;
     }
@@ -72,4 +77,5 @@ public class FeedViewModel extends AndroidViewModel {
     public MutableLiveData<String> getStates() {
         return states;
     }
+    //endregion
 }

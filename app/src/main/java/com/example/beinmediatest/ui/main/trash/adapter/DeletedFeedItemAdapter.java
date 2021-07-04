@@ -77,7 +77,6 @@ public class DeletedFeedItemAdapter extends RecyclerView.Adapter<DeletedFeedItem
 
     //endregion
 
-
     //region View holder
     public class DeletedFeedItemViewHolder extends RecyclerView.ViewHolder {
 

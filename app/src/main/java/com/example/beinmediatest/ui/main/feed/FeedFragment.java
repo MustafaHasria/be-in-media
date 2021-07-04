@@ -8,7 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -28,9 +27,6 @@ import com.example.beinmediatest.util.ItemMoveCallback;
 import com.example.beinmediatest.util.NotificationUtil;
 import com.mancj.materialsearchbar.MaterialSearchBar;
 import com.mancj.materialsearchbar.SimpleOnSearchActionListener;
-
-import static com.example.beinmediatest.util.AppConst.ITEM_POSITION;
-import static com.example.beinmediatest.util.AppConst.NAME;
 
 
 public class FeedFragment extends Fragment implements FeedItemAdapter.OnFeedItemListeners {
@@ -210,8 +206,7 @@ public class FeedFragment extends Fragment implements FeedItemAdapter.OnFeedItem
 
     //region On activity result
     public void handleOnActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == AppConst.FEED_CAMERA_RESULT && resultCode == Activity.RESULT_OK)
-        {
+        if (requestCode == AppConst.FEED_CAMERA_RESULT && resultCode == Activity.RESULT_OK) {
             Bitmap photo = (Bitmap) data.getExtras().get("data");
             MovieModel movieModel = new MovieModel();
             movieModel.setLocalImage(photo);
@@ -224,13 +219,4 @@ public class FeedFragment extends Fragment implements FeedItemAdapter.OnFeedItem
     }
     //endregion
 
-
-//    public static void shareScreen(String text, Context context) {
-//
-//        Intent sharingIntent = new Intent(Intent.ACTION_SEND);
-//        sharingIntent.setType("text/plain");
-//        sharingIntent.putExtra(Intent.EXTRA_TEXT, text);
-//        sharingIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//        context.startActivity(Intent.createChooser(sharingIntent, "share"));
-//    }
 }

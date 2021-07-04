@@ -9,6 +9,7 @@ import com.example.beinmediatest.ui.main.feed.response.NetworkResponse;
 import com.example.beinmediatest.ui.main.feed.response.RatingResponse;
 
 public class MovieModel {
+    //region Property
 
     private int id;
     private String name;
@@ -21,7 +22,9 @@ public class MovieModel {
     private String summary;
     private boolean isFromLocal = false;
     private Bitmap localImage;
+    //endregion
 
+    //region Getters & Setters
     public Bitmap getLocalImage() {
         return localImage;
     }
@@ -109,5 +112,6 @@ public class MovieModel {
     public void setSummary(String summary) {
         this.summary = summary;
     }
+    //endregion
 }
 

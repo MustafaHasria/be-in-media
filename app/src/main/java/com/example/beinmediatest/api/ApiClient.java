@@ -41,7 +41,6 @@ public class ApiClient {
 
     //endregion
 
-
     //region Handle headers for api calls
     private static OkHttpClient GetHttpOkClient() {
         OkHttpClient.Builder httpClientBuilder = new OkHttpClient.Builder();

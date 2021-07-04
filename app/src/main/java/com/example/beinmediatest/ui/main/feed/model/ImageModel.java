@@ -4,9 +4,12 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class ImageModel {
+    //region Property
     private String medium;
     private String original;
+    //endregion
 
+    //region Getters & Setters
     public String getMedium() {
         return medium;
     }
@@ -22,4 +25,5 @@ public class ImageModel {
     public void setOriginal(String original) {
         this.original = original;
     }
+    //endregion
 }
